@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Registration</title>
+</head>
+<style>
+    body {
+  background-color: #1f6ec2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.register-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.register-form input,select
+{
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+}
+
+.register-form input[type="submit"] {
+  background-color: #1f6ec2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+</style>
+<body>
+    <div class="register-form">
+
+  <h1>Registration</h1>
+  <p>Already have an account?<a href="/">Login</a></p>
+
+  <form action="/api/v1/users/register" method="POST" enctype="multipart/form-data">
+    <label for="profilePhoto">Profile Photo:</label>
+    <input type="file" id="profilePhoto" name="profilePhoto" required><br>
+
+    <label for="names">Names:</label>
+    <input type="text" id="names" name="names" required><br>
+    <label for="names">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="12" max="120" required><br>
+
+    <label for="birthdate">Birthdate:</label>
+    <input type="date" id="birthdate" name="birthdate" required><br>
+
+    <label for="maritalStatus">Marital Status:</label>
+    <select id="maritalStatus" name="maritalStatus" required>
+      <option value="Single">Single</option>
+      <option value="Married">Married</option>
+      <option value="Divorced">Divorced</option>
+      <option value="Widowed">Widowed</option>
+    </select><br>
+
+    <label for="nationality">Nationality:</label>
+    <input type="text" id="nationality" name="nationality" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" minlength="8" required><br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+
+    <input type="submit" value="Register"/>
+  </form>
+  </div>
+
+</body>
+</html>

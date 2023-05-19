@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body {
+      background-color: #1f6ec2;
+      color:white;
+    }
+    .sidebar {
+      background-color: #1f6ec2;
+      width: 200px;
+      padding: 20px;
+    }
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      color: white;
+      text-decoration: none;
+    }
+    .user-details {
+      margin-left: 220px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+    <a href="/verify">Verify Account</a>
+  </div>
+  <div class="user-details">
+    <h2>Welcome, <span id="user-name"><%= user.names%><span></h2>
+    <p>Email: <span id="user-email"><%= user.email %></span></p>
+    <p>Gender: <span id="user-gender"><%= user.gender %></span></p>
+  </div>
+</body>
+</html>

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   profilePhoto: {
-    type: String,
+    type: Array,
     required: true,
   },
   names: {
@@ -33,10 +33,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  accountStatus: {
+
+  password: {
     type: String,
-    enum: ['VERIFIED', 'PENDING','UNVERIFIED'],
+    required: true,
+    minlength: 8,
   },
+  email:{
+    type:String,
+    required:true,
+    unique: true,
+  },
+
 });
 
 const User = mongoose.model('User', userSchema);

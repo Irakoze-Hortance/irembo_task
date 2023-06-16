@@ -10,11 +10,6 @@ const verificationSchema = new mongoose.Schema({
     type: Array,
     required: true,
   },
-  verificationStatus: {
-    type: String,
-    enum: ['UNVERIFIED', 'PENDING VERIFICATION', 'VERIFIED'],
-    default: 'UNVERIFIED',
-  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

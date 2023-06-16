@@ -5,7 +5,7 @@
   <style>
     body {
       background-color: #1f6ec2;
-      color:white;
+      color: white;
     }
     .sidebar {
       background-color: #1f6ec2;
@@ -22,6 +22,22 @@
       margin-left: 220px;
       padding: 20px;
     }
+    .user-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .user-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .comment{
+      color:yellow;
+    }
   </style>
 </head>
 <body>
@@ -31,9 +47,20 @@
     <a href="/verify">Verify Account</a>
   </div>
   <div class="user-details">
-    <h2>Welcome, <span id="user-name"><%= user.names%><span></h2>
+    <div class="user-image">
+      <img src="<%= user.profilePhoto %>" alt="User Image">
+    </div>
+    <% if (user.verificationStatus === 'PENDING VERIFICATION') { %>
+      <p class="comment">Your verification is currently pending. Please wait for approval.</p>
+    <% } %>
+
+    <% if (user.verificationStatus === 'VERIFIED') { %>
+      <p class="comment">You are a pro now!</p>
+    <% } %>
+    <h2>Welcome, <span id="user-name"><%= user.names %></span></h2>
     <p>Email: <span id="user-email"><%= user.email %></span></p>
     <p>Gender: <span id="user-gender"><%= user.gender %></span></p>
+    <p>Account Status: <span id="user-status"><%= user.verificationStatus %></span></p>
   </div>
 </body>
 </html>

@@ -6,7 +6,6 @@ const verificationController = require('../controllers/verification.controller')
 
 
 
-router.post('/upload',authenticateToken ,upload.array("image"),verificationController.uploadDocument);
 
 
 module.exports = router;

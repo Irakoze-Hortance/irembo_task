@@ -29,8 +29,9 @@ app.get('/register',(req,res)=>{
 
 })
 
-app.get('/verify',(req,res)=>{
+app.get('/verify',(req,res,next)=>{
   res.render('verify')
+  next();
 })
 
 app.get('/dashboard',(req,res,next)=>{
@@ -49,7 +50,7 @@ app.get('/initiate-reset',(req,res)=>{
 })
 
 
-app.get('/reset-password',(req,res)=>{
+app.get('/reset-password/:token',(req,res)=>{
   res.render('reset-password')
 })
 app.use('/api/v1/users/',userRouter)

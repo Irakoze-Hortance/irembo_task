@@ -20,6 +20,14 @@ const userSchema = new mongoose.Schema({
     min: 12,
     max: 120,
   },
+  verificationStatus: {
+    type: String,
+    enum: ['UNVERIFIED', 'PENDING VERIFICATION', 'VERIFIED'],
+    default: 'UNVERIFIED',
+  },
+
+  token:String,
+ 
   birthdate: {
     type: Date,
     required: true,
@@ -41,9 +49,17 @@ const userSchema = new mongoose.Schema({
   },
   email:{
     type:String,
-    required:true,
     unique: true,
   },
+
+  documentType: {
+    type: String,
+    enum:['NID','Passport'],
+  },
+  document: {
+    type: Array,
+  },
+
 
 });
 

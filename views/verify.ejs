@@ -4,7 +4,7 @@
   <title>Verify Account</title>
   <style>
     body {
-      background-color: lightblue;
+      background-color: #1f6ec2;
     }
     h1 {
       text-align: center;
@@ -36,7 +36,12 @@
 <body>
   <div class="container">
     <h1>Verify Account</h1>
-    <form method="POST" enctype="multipart/form-data" action="/api/v1/verify/upload">
+
+    <form method="POST" enctype="multipart/form-data" action="/api/v1/users/upload">
+      <div class="form-group">
+        <label for ="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="email"/>
+      </div>
       <div class="form-group">
         <label for="documentType">Document Type:</label>
         <select name="documentType" id="documentType">
